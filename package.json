@@ -1,0 +1,27 @@
+{
+  "name": "projeto-rest-api",
+  "version": "1.0.0",
+  "description": "API REST utilizando Node.js e Express. Controlando banco de dados através de MySQL",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RaulFerreira21/restAPI.git"
+  },
+  "author": "Raul Ferreira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RaulFerreira21/restAPI/issues"
+  },
+  "homepage": "https://github.com/RaulFerreira21/restAPI#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "consign": "^0.1.6",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.6"
+  }
+}
