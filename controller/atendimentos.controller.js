@@ -1,14 +1,38 @@
+const Atendimento = require('../MODELS/atendimentos-module');
+
 module.exports = app => {
-    app.get('/', (req, res)=>{
+    app.get('/', (req, res) => {
         res.send('Servidor rodando, tudo OK');
     });
-    
-    app.get('/atendimentos', (req, res)=>{
-        res.send('Você está na rota de atendimento');
+
+    app.get('/atendimentos', (req, res) => {
+        Atendimento.lista(res);
     });
 
+    app.get('/atendimentos/:id', (req, res) => {
+        const id = parseInt(req.params.id);
+
+        Atendimento.buscaPorId(id, res);
+
+        // res.send('ok');
+    })
+
     app.post('/atendimentos', (req, res) => {
-        console.log(req.body);
-        res.send('Você está mandando um post na rota de atendimento')
+        const atendimento = req.body;
+        Atendimento.adiciona(atendimento, res);
+
     });
+
+    app.patch('/atendimentos/:id', (req, res) => {
+        const id = parseInt(req.params.id);
+        const valores = req.body;
+
+        Atendimento.alterar(id, valores, res);
+    });
+
+    app.delete('/atendimentos/:id', (req, res) => {
+        const id = parseInt(req.params.id);
+
+        Atendimento.deletar(id, res);
+    })
 }
